@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Shopping List</string>
     <string name="bebra">bebra</string>
+    <string name="title_activity_shop_item">ShopItemActivity</string>
+    <string name="name_hint">Name</string>
+    <string name="count_hint">Count</string>
+    <string name="save_btn">Save</string>
+    <string name="error_input">Wrong input</string>
 </resources>

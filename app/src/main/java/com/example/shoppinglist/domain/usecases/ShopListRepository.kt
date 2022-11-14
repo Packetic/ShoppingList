@@ -1,7 +1,7 @@
 package com.example.shoppinglist.domain.usecases
 
 import androidx.lifecycle.LiveData
-import com.example.shoppinglist.domain.ShopItem
+import com.example.shoppinglist.domain.model.ShopItem
 
 interface ShopListRepository {
     fun insertItem(item: ShopItem)
