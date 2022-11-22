@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.shoppinglist.R
 import com.example.shoppinglist.domain.model.ShopItem
+import com.example.shoppinglist.presentation.fragment.ShopItemFragment
 
 class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
     private var screenMode = MODE_UNKNOWN

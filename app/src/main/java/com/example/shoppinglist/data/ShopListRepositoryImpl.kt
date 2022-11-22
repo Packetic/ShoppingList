@@ -3,7 +3,7 @@ package com.example.shoppinglist.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.shoppinglist.domain.model.ShopItem
-import com.example.shoppinglist.domain.usecases.ShopListRepository
+import com.example.shoppinglist.domain.repository.ShopListRepository
 import kotlin.random.Random
 
 object ShopListRepositoryImpl: ShopListRepository {

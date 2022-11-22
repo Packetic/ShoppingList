@@ -1,9 +1,13 @@
-package com.example.shoppinglist.presentation
+package com.example.shoppinglist.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import com.example.shoppinglist.R
+import com.example.shoppinglist.databinding.ItemShopDisabledBinding
+import com.example.shoppinglist.databinding.ItemShopEnabledBinding
 import com.example.shoppinglist.domain.model.ShopItem
 
 class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCallback()) {
@@ -17,22 +21,32 @@ class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCa
             VIEW_TYPE_ENABLED -> R.layout.item_shop_enabled
             else -> throw RuntimeException("Unknown viewtype: $viewType")
         }
-        val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
-        return ShopItemViewHolder(view)
+        val binding = DataBindingUtil.inflate<ViewDataBinding>(
+            LayoutInflater.from(parent.context),
+            layout,
+            parent,
+            false
+        )
+        return ShopItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ShopItemViewHolder, position: Int) {
         val shopItem = getItem(position)
-        with(holder) {
-            itemView.setOnLongClickListener {
-                onShopItemLongClickListener?.invoke(shopItem)
-                true
+        val binding = holder.binding
+        binding.root.setOnLongClickListener {
+            onShopItemLongClickListener?.invoke(shopItem)
+            true
+        }
+        binding.root.setOnClickListener {
+            onShopItemClickListener?.invoke(shopItem)
+        }
+        when(binding) {
+            is ItemShopDisabledBinding -> {
+                binding.shopItem = shopItem
             }
-            itemView.setOnClickListener {
-                onShopItemClickListener?.invoke(shopItem)
+            is ItemShopEnabledBinding -> {
+                binding.shopItem = shopItem
             }
-            tvName.text = shopItem.name
-            tvCount.text = shopItem.count.toString()
         }
     }
 

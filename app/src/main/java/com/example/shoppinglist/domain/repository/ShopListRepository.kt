@@ -1,4 +1,4 @@
-package com.example.shoppinglist.domain.usecases
+package com.example.shoppinglist.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.example.shoppinglist.domain.model.ShopItem

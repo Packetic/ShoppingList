@@ -1,4 +1,4 @@
-package com.example.shoppinglist.presentation
+package com.example.shoppinglist.presentation.stateholder
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
