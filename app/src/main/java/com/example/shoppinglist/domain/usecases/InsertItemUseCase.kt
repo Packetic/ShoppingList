@@ -4,7 +4,7 @@ import com.example.shoppinglist.domain.model.ShopItem
 import com.example.shoppinglist.domain.repository.ShopListRepository
 
 class InsertItemUseCase(private val shopListRepository: ShopListRepository) {
-    fun insertItem(item: ShopItem) {
+    suspend fun insertItem(item: ShopItem) {
         shopListRepository.insertItem(item)
     }
 }
